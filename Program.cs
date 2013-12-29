@@ -10,17 +10,22 @@ namespace ZappaGateway {
     /*
      * Author: Daniel Forslund 
      * 
-     * This application acts as a gateway for the Telia Zappa mobile app between your regular LAN and your Telia IPTV network. 
-     * This comes in handy if you, like me, are running your Telia router in bridged mode where the LAN and IPTV networks are separated, 
-     * and the Zappa app wouldn't normally work.
+     * This application acts as a gateway for the Telia Zappa mobile app between your regular LAN and your 
+     * Telia IPTV network. 
+     * This comes in handy if you, like me, are running your Telia router in bridged mode where the LAN and 
+     * IPTV networks are separated, and the Zappa app wouldn't normally work.
      * 
-     * The application requires you to have two network interfaces connected to your computer, one to the LAN and one to the IPTV.
-     * Start the application with two parameters: the first one is your LAN IP-address, the second is your IPTV IP-address.
+     * The application requires you to have two network interfaces connected to your computer, one to the LAN 
+     * and one to the IPTV.
+     * Start the application with two parameters: the first one is your LAN IP-address, the second is your 
+     * IPTV IP-address.
      * 
      * How it works:
      * 1. The applications starts to listen for multicast messages on your LAN on port 5555.
-     * 2. The Zappa mobile app sends a multicast message on your LAN to 239.16.16.195 on port 5555, from a random local port.
-     * 3. The application picks up the message and starts a TCP server on the IPTV network, listening for connections to the same local port number.
+     * 2. The Zappa mobile app sends a multicast message on your LAN to 239.16.16.195 on port 5555, from a 
+     *    random local port.
+     * 3. The application picks up the message and starts a TCP server on the IPTV network, listening for connections 
+     *    to the same local port number.
      * 4. The application forwards the same multicast message on the IPTV network, from the same local port number.
      * 5. The IPTV box replies by connecting via TCP to the sender of the multicast on the local port number.
      * 6. The application forwards data between the Zappa app and IPTV box via TCP via the established connection.
